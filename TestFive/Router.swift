@@ -158,7 +158,6 @@ final class Router: NSObject, RouterProtocol {
     }
 }
 
-// MARK: - Extensions
 // MARK: - UINavigationControllerDelegate
 
 extension Router: UINavigationControllerDelegate {
