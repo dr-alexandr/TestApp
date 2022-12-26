@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class TestViewController: UIViewController, UITableViewDelegate {
 
     // MARK: - Properties
-    private var viewModel: ViewModelViewControllerProtocol
+    private var viewModel: TestViewModelProtocol
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
     private let loader = UIActivityIndicatorView()
@@ -21,12 +21,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         setupLayout()
         setupUI()
-        bind()
-        loader.startAnimating()
-        viewModel.takeData()
     }
     
-    init(viewModel: ViewModelViewControllerProtocol) {
+    init(viewModel: TestViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,12 +35,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Helpers
     private func setupLayout() {
         view.addSubview(tableView)
-        view.addSubview(loader)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
+        view.addSubview(loader)
         loader.snp.makeConstraints { (make) in
             make.centerX.centerY.equalToSuperview()
         }
@@ -54,14 +49,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = constants.tableCellRowHeight
         tableView.tableFooterView = UIView()
         tableView.register(MyTableCell.self, forCellReuseIdentifier: "MyTableViewCell")
         tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        bindDataReturn()
+        loader.startAnimating()
+        viewModel.fetchTestData()
     }
     
-    private func bind() {
-        viewModel.onCompletion = { [weak self] in
+    private func bindDataReturn() {
+        viewModel.finishedDataParsing = { [weak self] in
             guard let self = self else {return}
             self.tableView.reloadData()
             self.loader.stopAnimating()
@@ -69,30 +68,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @objc private func refreshWeatherData(_ sender: Any) {
-        viewModel.takeData()
-    }
-    
-    // MARK: - TableView Setup
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getCount() ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCell", for: indexPath) as! MyTableCell
-        cell.data = viewModel.getDataForIndexPath(indexPath: indexPath)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-}
-// MARK: - Presentable 
-extension UIViewController: Presentable {
-    func toPresent() -> UIViewController? {
-        return self
+    @objc private func refreshData() {
+        viewModel.fetchTestData()
     }
 }
 
+// MARK: - Extension
+extension TestViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfCells 
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: "MyTableViewCell",
+                                     for: indexPath) as? MyTableCell else {
+            return UITableViewCell()
+        }
+        cell.data = viewModel.getDataForIndexPath(indexPath: indexPath)
+        return cell
+    }
+}
+
+// MARK: - Constants Enum
+fileprivate enum constants {
+    static let tableCellRowHeight: CGFloat = 100
+}
 

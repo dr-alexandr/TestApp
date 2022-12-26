@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
     func start()
 }
 
@@ -30,7 +30,7 @@ final class ApplicationCoordinator: Coordinator {
     // MARK: - Private methods
     
     private func showViewController() {
-        let vc = ViewController(viewModel: ViewModelViewController())
+        let vc = TestViewController(viewModel: TestViewModel(networkManager: NetworkManager()))
         self.router.setRootModule(vc, hideBar: true)
     }
     

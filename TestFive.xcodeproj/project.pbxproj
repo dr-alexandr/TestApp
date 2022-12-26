@@ -10,15 +10,17 @@
 		2C5306B2E1C3B91AF957F33B /* Pods_TestFive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C5440CBB55909EB5F968A1 /* Pods_TestFive.framework */; };
 		E26279B22955B8E90014D52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279B12955B8E90014D52C /* AppDelegate.swift */; };
 		E26279B42955B8E90014D52C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279B32955B8E90014D52C /* SceneDelegate.swift */; };
-		E26279B62955B8E90014D52C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279B52955B8E90014D52C /* ViewController.swift */; };
+		E26279B62955B8E90014D52C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279B52955B8E90014D52C /* TestViewController.swift */; };
 		E26279BB2955B8EB0014D52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E26279BA2955B8EB0014D52C /* Assets.xcassets */; };
 		E26279BE2955B8EB0014D52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26279BC2955B8EB0014D52C /* LaunchScreen.storyboard */; };
-		E26279CE2955C94E0014D52C /* ViewModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279CD2955C94E0014D52C /* ViewModelViewController.swift */; };
+		E26279CE2955C94E0014D52C /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279CD2955C94E0014D52C /* TestViewModel.swift */; };
 		E26279D22955CC510014D52C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279D12955CC510014D52C /* ApplicationCoordinator.swift */; };
 		E26279D52955CC7B0014D52C /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279D42955CC7B0014D52C /* NetworkLayer.swift */; };
 		E26279D92955CEDB0014D52C /* MyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279D82955CEDB0014D52C /* MyTableCell.swift */; };
 		E26279E02955D3360014D52C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279DF2955D3360014D52C /* Logger.swift */; };
 		E26279E42955EBFA0014D52C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26279E32955EBFA0014D52C /* Router.swift */; };
+		E2952A9E2959D3F6001A1600 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2952A9D2959D3F6001A1600 /* UIExtension.swift */; };
+		E2952AA32959DA54001A1600 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2952AA22959DA54001A1600 /* DataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,16 +30,18 @@
 		E26279AE2955B8E80014D52C /* TestFive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26279B12955B8E90014D52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E26279B32955B8E90014D52C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E26279B52955B8E90014D52C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E26279B52955B8E90014D52C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E26279BA2955B8EB0014D52C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E26279BD2955B8EB0014D52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E26279BF2955B8EB0014D52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E26279CD2955C94E0014D52C /* ViewModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelViewController.swift; sourceTree = "<group>"; };
+		E26279CD2955C94E0014D52C /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		E26279D12955CC510014D52C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		E26279D42955CC7B0014D52C /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		E26279D82955CEDB0014D52C /* MyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableCell.swift; sourceTree = "<group>"; };
 		E26279DF2955D3360014D52C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E26279E32955EBFA0014D52C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E2952A9D2959D3F6001A1600 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		E2952AA22959DA54001A1600 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +88,15 @@
 			children = (
 				E26279B12955B8E90014D52C /* AppDelegate.swift */,
 				E26279B32955B8E90014D52C /* SceneDelegate.swift */,
-				E26279B52955B8E90014D52C /* ViewController.swift */,
-				E26279CD2955C94E0014D52C /* ViewModelViewController.swift */,
-				E26279D82955CEDB0014D52C /* MyTableCell.swift */,
-				E26279D42955CC7B0014D52C /* NetworkLayer.swift */,
-				E26279DF2955D3360014D52C /* Logger.swift */,
 				E26279D12955CC510014D52C /* ApplicationCoordinator.swift */,
+				E26279B52955B8E90014D52C /* TestViewController.swift */,
+				E26279CD2955C94E0014D52C /* TestViewModel.swift */,
+				E26279D82955CEDB0014D52C /* MyTableCell.swift */,
+				E2952A9D2959D3F6001A1600 /* UIExtension.swift */,
+				E2952AA22959DA54001A1600 /* DataModels.swift */,
+				E26279D42955CC7B0014D52C /* NetworkLayer.swift */,
 				E26279E32955EBFA0014D52C /* Router.swift */,
+				E26279DF2955D3360014D52C /* Logger.swift */,
 				E26279BA2955B8EB0014D52C /* Assets.xcassets */,
 				E26279BC2955B8EB0014D52C /* LaunchScreen.storyboard */,
 				E26279BF2955B8EB0014D52C /* Info.plist */,
@@ -221,8 +227,10 @@
 			files = (
 				E26279D52955CC7B0014D52C /* NetworkLayer.swift in Sources */,
 				E26279D22955CC510014D52C /* ApplicationCoordinator.swift in Sources */,
-				E26279CE2955C94E0014D52C /* ViewModelViewController.swift in Sources */,
-				E26279B62955B8E90014D52C /* ViewController.swift in Sources */,
+				E2952AA32959DA54001A1600 /* DataModels.swift in Sources */,
+				E2952A9E2959D3F6001A1600 /* UIExtension.swift in Sources */,
+				E26279CE2955C94E0014D52C /* TestViewModel.swift in Sources */,
+				E26279B62955B8E90014D52C /* TestViewController.swift in Sources */,
 				E26279E42955EBFA0014D52C /* Router.swift in Sources */,
 				E26279B22955B8E90014D52C /* AppDelegate.swift in Sources */,
 				E26279B42955B8E90014D52C /* SceneDelegate.swift in Sources */,
