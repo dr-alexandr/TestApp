@@ -47,9 +47,8 @@ final class TestViewController: UIViewController, UITableViewDelegate {
     private func setupUI() {
         view.backgroundColor = .white
         tableView.backgroundColor = .white
-        tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = constants.tableCellRowHeight
+        tableView.rowHeight = Constants.tableCellRowHeight
         tableView.tableFooterView = UIView()
         tableView.register(MyTableCell.self, forCellReuseIdentifier: "MyTableViewCell")
         tableView.refreshControl = refreshControl
@@ -92,7 +91,7 @@ extension TestViewController: UITableViewDataSource {
 }
 
 // MARK: - Constants Enum
-fileprivate enum constants {
+fileprivate enum Constants {
     static let tableCellRowHeight: CGFloat = 100
 }
 

@@ -17,9 +17,9 @@ protocol TestViewModelProtocol {
 
 final class TestViewModel: TestViewModelProtocol {
     
+    private var networkManager: NetworkManagerProtocol
+    private var countries: [PopulationInfo]?
     var finishedDataParsing: (() -> Void)?
-    var networkManager: NetworkManagerProtocol
-    var countries: [PopulationInfo]?
     var numberOfCells: Int {
         return countries?.count ?? 0
     }
@@ -30,7 +30,7 @@ final class TestViewModel: TestViewModelProtocol {
     
     func fetchTestData() {
         guard let url = URL(string: Constants.testUrl) else {return}
-        networkManager.getData(url: url) { (result: Result<TestDataDTO,Error>) in
+        networkManager.getData(url: url) { [unowned self] (result: Result<TestDataDTO,Error>) in
             switch result {
             case .success(let response):
                 self.countries = response.data
